@@ -11,12 +11,81 @@ An easy to use DIY grow controller firmware (for cannabis).
 ![Screenshot_WebUI_root.png](Screenshot_WebUI_root.png)
 ![CanGrow_PCB_Front.png](CanGrow_PCB_Front_small.png)
 
-# WORK IN PROGRESS
+## WORK IN PROGRESS
 
 ## Motivation
 I havn't found an already existing grow controller project within the ESP / Arduino Core eco system which 
 met my personal requirements. 
 Those are an easy DIY, using low cost parts, Arduino Core sourcecode to hack own things together, having a WebUI, grab some Metrics for monitoring, standalone and my very special need that the Hardware should run completely with 12V. 
+
+### Update 09.12.2024 - Release of CanGrow firmware v0.1.0
+
+After some feedback of users from the forum [grower.ch](https://grower.ch) (thank you guys!) I somewhat finalized firmware version v0.1 so this would be in a usable state for others to use. 
+Work on v0.2 is progressing slowly, so it is better when the code, which already exists, exists in usable way :) 
+
+**Release notes:**
+
+First non-dev release of CanGrow Firmware v0.1 branch
+
+I would call this the first "official" release, which is usable. It does not (yet) contain all functions and features I planned to implement, but those will come with v0.2 of the firmware, which is already in progress for about a month now. 
+
+CanGrow Firmware v0.1.0 is made for the CanGrow PCB, but you can of course run it with your own hardware. Firmware v0.2 will be fully platform independent. 
+
+
+# Setup 
+
+## Perform a factory reset, after you have flashed the firmware to your ESP8266 (for the first time or having problem like crash loops)!
+
+You perform a factory reset (wipe) by connecting Pin D4 with GND (WIPE on the CanGrow PCB) when the builtin LED of the ESP8266 blinks three times during start. Hold for three seconds, then release. The builtin LED should now flash faster and the ESP should restart.
+Now you will see an open unprotected Wifi called `CanGrow-unconfigured`, connect to it and open the address [http://192.168.4.20](http://192.168.4.20) and you can now start setup up your CanGrow device :)
+
+
+# Features
+
+- Gather Values from sensors
+  - Temperature
+  - Humidity
+  - Soilmoisture
+- Time based (ntp) Light control
+  - Smooth Fade in and fade out configurable
+- Control of two Fans
+  - FAN1 is controlled by PWM supply Voltage
+  - FAN2 is controlled by PWM 4 Pin Fan header
+- Simple watering control
+  - 3 modes for water plan
+    - By soilmoisture value
+    - by time (every n days, different interval for vegetation and bloom phase)
+    - both combined
+- Define the different phases of your grow
+  - Set amount of days for vegetation and bloom phase. 
+  - After bloom phase CanGrow enters harvest mode by its own, which means the light and watering system gets disabled
+- Maintenance Mode
+  - When using LED PWM, you can activate Maintenance Mode, which dimms the light. (at night it will turn on when enabling maintenance mode)
+- ESP32Cam integration on the Dashboard
+- Support for SSD1306 128x64 I2C OLED display
+  - rotates through three different screens
+- Get measured values as json
+  - `GET /api/sensors`
+
+# Supported Sensors
+- Analog capacitive soilmoisture 
+- I2C Chirp (https://wemakethings.net/chirp/)
+  - Soilmoisture
+  - Temperature
+- I2C BME280
+  - Temperature
+  - Humidity
+- I2C SHT31
+  - Temperature
+  - Humidity
+- Analog water level indicator
+  - Builtin on CanGrow PCB
+  - simple voltage divider, check out https://deltalima.org/blog/index.ph...e-step-water-level-indicator-for-arduino-esp/
+ 
+# Todo
+This version branch v0.1.x will receive only bugfixes and small changes. Work on the next v0.2 has already began, which is a complete rewrite. If you are curious , check out the branch "firmware_v0.2-dev", any feedback is welcome!
+
+***
 
 ### Update 14.09.2024 - Code Rewrite v0.2
 
@@ -60,7 +129,7 @@ and let the user decide at which pin which output, sensor or whatever will be co
 - MQTT support
 - API
 
-  
+***  
   
 ## Old v0.1 Features / ToDo List
 
