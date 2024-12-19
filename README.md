@@ -1,13 +1,15 @@
 # CanGrow
 
+### Origin: https://git.la10cy.net/DeltaLima/CanGrow
+For source code and releases, please go there! :)
 
 ![CanGrowLogo](Logo/CanGrow_Logo.png)
 
 
 An easy to use DIY grow controller firmware (for cannabis).
 
-![Screenshot_WebUI_root.png](Arduino/CanGrow/Screenshot_WebUI_root.png)
-![CanGrow_PCB_Front.png](KiCad/CanGrow/CanGrow_PCB_Front_small.png)
+![Screenshot_WebUI_root.png](Screenshot_WebUI_root.png)
+![CanGrow_PCB_Front.png](CanGrow_PCB_Front_small.png)
 
 # WORK IN PROGRESS
 
