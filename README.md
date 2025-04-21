@@ -8,7 +8,6 @@ For source code and releases, please go there! :)
 
 ⚠️⚠️⚠️
 
-
 ## 🌱 Features
 
 - Support for ESP8266 and ESP32 microcontrollers
@@ -62,13 +61,15 @@ The WLED project made a very good instruction how to upload a .bin File to the E
 
 Alternatively you can also build and upload the code by your own. Please have a look into the Section [Build Environment](#build-environment)
 
+## 🔌 Setup
+
 After uploading the firmware to the ESP, you might want to perform a factory reset of the firmware.  
 To do so, bridge the internal LED Pin to:
 
 |ESP variant|GPIO|bridge to|
 |-----|--------|--------------|
 |ESP8266|D4 (2)|GND|
-|ESP32 (D1 Mini)|2|+3.3V|
+|ESP32 (NodeMCU, D1 Mini)|2|+3.3V|
 
 During boot (LED flashes 3x) hold it and release after 3 seconds. The LED will flash fast and the ESP will reset and restart.
 
@@ -151,13 +152,13 @@ $ geany CanGrow.geany
 **F8 compiles** the project, **F9 uploads** firmware to /dev/ttyUSB0. You can change these settings for .ino and .h files
 in Project -> Settings -> Create/Make.
 
-## Development
+## 📐 Development
 
 Please have a look into the [Porject Board](https://git.la10cy.net/DeltaLima/CanGrow/projects/1) to see which Issues are open or already in work.
 
 If you want to open an issue, feel free to do so on the public [Codeborg Mirror](https://codeberg.org/DeltaLima/CanGrow/issues) or [Github Repo (empty)](https://github.com/DeltaLima/CanGrow).
 
-## License
+## 📜 License
 
 ```
 Copyright (C) 2025  DeltaLima
