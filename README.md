@@ -160,8 +160,12 @@ $ podman-compose up ; podman-compose down
 $ rm boards.env
 ```
 
-To force an update of your container build environment without rebuild the whole image, set `UPDATEBUILDENV=1` in `updatebuildenv.env`:
+To update the build environment just run
 ```sh
+# re-generate the whole container image (safest method, takes longer)
+$ podman-compose build
+
+# just re-run 'cangrow.sh setup' within the actual image before build
 $ echo 'UPDATEBUILDENV=1' > updatebuildenv.env
 $ podman-compose up ; podman-compose down
 # dont forget to remove it, if you dont need an update afterwards 
