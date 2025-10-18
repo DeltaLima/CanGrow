@@ -87,7 +87,7 @@ Connect to it and open the page [http://192.168.4.20](http://192.168.4.20)
 ![Screenshot_montage.png](Screenshot_montage.png)
 
 ## 🔨 Build environment
-The helper script `cangrow.sh` is written for a **Debian 12** system. 
+The helper script `cangrow.sh` is written for a **Debian 13** system. 
 
 To install all dependencies you need for building the firmware, run the cangrow.sh setup:
 
@@ -142,6 +142,32 @@ For this, you just have to copy the content of the `libraries/` directory to you
 After this, you just have to ensure, you have the correct Arduino Core installed for your ESP you want to compile CanGrow for.  
 How to add the ESP Arduino Cores is well described [in this Instructables](https://www.instructables.com/Installing-ESP8266-and-ESP32-Core-in-Arduino-Windo/)
 
+### 🦭 Podman / Docker build container
+Just do a `compose up` with the container engine of your favor to build all supported firmware binaries
+```sh
+# With podman
+$ podman-compose up ; podman-compose down
+
+# With Docker
+$ docker compose up ; docker compose down
+```
+
+To only build for one ESP platform (e.g. the ESP32 NodeMCU), just put the (supported) FQBN into the `BOARDS` environment variable:
+```sh
+$ echo 'BOARDS=esp32:esp32:esp32' > boards.env
+$ podman-compose up ; podman-compose down
+# just remove the file to build for all platforms again
+$ rm boards.env
+```
+
+To force an update of your container build environment without rebuild the whole image, set `UPDATEBUILDENV=1` in `updatebuildenv.env`:
+```sh
+$ echo 'UPDATEBUILDENV=1' > updatebuildenv.env
+$ podman-compose up ; podman-compose down
+# dont forget to remove it, if you dont need an update afterwards 
+$ rm updatebuildenv.env
+```
+
 ## 🪔 Geany IDE
 
 I wrote this project using [Geany IDE. ](https://www.geany.org/). The Geany Projectfile is also included, just run
@@ -154,7 +180,7 @@ in Project -> Settings -> Create/Make.
 
 ## 📐 Development
 
-Please have a look into the [Porject Board](https://git.la10cy.net/DeltaLima/CanGrow/projects/1) to see which Issues are open or already in work.
+Please have a look into the [Project Board](https://git.la10cy.net/DeltaLima/CanGrow/projects/1) to see which Issues are open or already in work.
 
 If you want to open an issue, feel free to do so on the public [Codeborg Mirror](https://codeberg.org/DeltaLima/CanGrow/issues) or [Github Repo (empty)](https://github.com/DeltaLima/CanGrow).
 
