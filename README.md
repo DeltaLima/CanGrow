@@ -28,16 +28,26 @@ For source code and releases, please go there! :)
 - Access Point creation as Failsafe mode when Wifi not available (see serial monitor)
 - Configuration saved as JSON within LittleFS for easy backup & restore
 
+## 🤖 Supported Hardware / Micro controller
+|Name|FQBN|Notes|
+|----|-----|
+|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|The default build target for the moment. Used in the [CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|
+|ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|NodeMCU should work as well with this|
+|ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|Works with cheap nologo ones as well|
+|ESP32-S2 Mini (Lolin)|`esp32:esp32:makergo_c3_supermini`|Works with cheap nologo ones as well|
+|untested|untested|untested|
+|ESP8266 NodeMCU|`esp8266:esp8266:generic`|For all ESP8266 Dev boards|
+|ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|For all ESP32 WROOM Dev boards|
+|ESP32-C3 Dev board|`esp32:esp32:esp32c3`|For all ESP32-C3 Dev boards|
+|ESP32-S2 Dev board|`esp32:esp32:esp32s2`|For all ESP32-S2 WROOM Dev boards|
 
 ## 💡 Supported Outputs
+|Output name|Notes|
+|-----------|-----|
+|GPIO Pins|On/Off, PWM support, DAC tbd.|
+|I2C DAC modules|GP8402 (0-10V), MCP4725 (0-3.3V)|
+|HTTP requests|Tasmota / Shelly Wifi plugs, whatever REST API|
 
-- internal GPIO pins
-  - PWM support
-- I2C DAC modules
-  - GP8402 (0-10V)
-  - MCP4725 (0-3.3V)
-- HTTP requests
-  - Tasmota / Shelly Wifi plugs
 
 ## 🌡️ Supported Sensors
 |Sensor name|Readings|
