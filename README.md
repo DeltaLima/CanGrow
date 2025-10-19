@@ -1,6 +1,6 @@
 # ![Logo/CanGrow_favico_large.png](Logo/CanGrow_favico_large.png) CanGrow - An OpenSource grow controller firmware for ESP8266 / ESP32
 
-CanGrow is a firmware for ESP microcontrollers to control and monitor all plant needs. It can be understood as lightweight standalone alternative to HomeAssistant for plant growing systems.
+CanGrow is a firmware for ESP microcontrollers to control and monitor all plant needs. It can be understood as a lightweight standalone alternative to HomeAssistant for plant growing systems.
 
 ⚠️⚠️⚠️
 ### Origin: https://git.la10cy.net/DeltaLima/CanGrow
