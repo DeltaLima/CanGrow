@@ -71,7 +71,7 @@ The WLED project made a very good instruction how to upload a .bin File to the E
 
 Alternatively you can also build and upload the code by your own. Please have a look into the Section [Build Environment](#build-environment)
 
-If you are interested in a mostly working and bleeding edge development release, check out the [pre-built snapshot binaries on pub.la10cy.net](https://pub.la10cy.net/CanGrow_builds/snapshot/)
+If you are interested in a mostly working and bleeding edge development release, check out the [pre-built snapshot binaries on pub.la10cy.net](https://pub.la10cy.net/CanGrow_builds/snapshots/)
 
 ## 🔌 Setup
 
