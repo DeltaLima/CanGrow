@@ -34,7 +34,7 @@ For source code and releases, please go there! :)
 |ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|The default build target for the moment. Used in the [CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|
 |ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|NodeMCU should work as well with this|
 |ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|Works with cheap nologo ones as well|
-|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|Works with cheap nologo ones as well|
+|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|Works with cheap nologo ones as well, Crashes when serial monitor is active and config is written|
 |untested|untested|untested|
 |ESP8266 NodeMCU|`esp8266:esp8266:generic`|For all ESP8266 Dev boards|
 |ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|For all ESP32 WROOM Dev boards|
