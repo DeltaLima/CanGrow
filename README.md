@@ -30,7 +30,7 @@ For source code and releases, please go there! :)
 
 ## 🤖 Supported Hardware / Micro controller
 |Name|FQBN|Notes|
-|----|-----|
+|----|----|-----|
 |ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|The default build target for the moment. Used in the [CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|
 |ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|NodeMCU should work as well with this|
 |ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|Works with cheap nologo ones as well|
