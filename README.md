@@ -88,7 +88,9 @@ To do so, bridge the internal LED Pin to:
 |ESP variant|GPIO|bridge to|
 |-----|--------|--------------|
 |ESP8266|D4 (2)|GND|
-|ESP32 (NodeMCU, D1 Mini)|2|+3.3V|
+|ESP32 WROOM|2|+3.3V|
+|ESP32-C3|8|GND|
+|ESP32-S2|15|+3.3V|
 
 During boot (LED flashes 3x) hold it and release after 3 seconds. The LED will flash fast and the ESP will reset and restart.
 
