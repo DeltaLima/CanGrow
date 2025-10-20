@@ -1,6 +1,6 @@
 # ![Logo/CanGrow_favico_large.png](Logo/CanGrow_favico_large.png) CanGrow - An OpenSource grow controller firmware for ESP8266 / ESP32
 
-CanGrow is a firmware for ESP microcontrollers to control and monitor all plant needs. It can be understood as a lightweight standalone alternative to HomeAssistant for plant growing systems.
+CanGrow is a firmware for ESP micro controllers for automation and monitoring of all plant needs. It can be understood as a lightweight standalone alternative to HomeAssistant for plant growing systems.
 
 ⚠️⚠️⚠️
 ### Origin: https://git.la10cy.net/DeltaLima/CanGrow
@@ -28,18 +28,25 @@ For source code and releases, please go there! :)
 - Access Point creation as Failsafe mode when Wifi not available (see serial monitor)
 - Configuration saved as JSON within LittleFS for easy backup & restore
 
-## 🤖 Supported Hardware / Micro controller
+## 🤖 Supported Micro Controllers
 |Name|FQBN|Notes|
 |----|----|-----|
-|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|The default build target for the moment. Used in the [CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|
+|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|The default build target for the moment.|
 |ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|NodeMCU should work as well with this|
 |ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|Works with cheap nologo ones as well|
-|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|Works with cheap nologo ones as well, Crashes when serial monitor is active and config is written|
+|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|Works with cheap nologo ones as well, Crashes when serial monitor is active and LittleFS writes|
 |untested|untested|untested|
 |ESP8266 NodeMCU|`esp8266:esp8266:generic`|For all ESP8266 Dev boards|
 |ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|For all ESP32 WROOM Dev boards|
 |ESP32-C3 Dev board|`esp32:esp32:esp32c3`|For all ESP32-C3 Dev boards|
 |ESP32-S2 Dev board|`esp32:esp32:esp32s2`|For all ESP32-S2 WROOM Dev boards|
+
+## 🎛️ Supported Boards
+|Name|FQBN|Notes|
+|----|----|-----|
+|[CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|`esp8266:esp8266:d1_mini_clone`|Outputs are inverted (not `FAN2`), onboard soilmoisture needs `GPIO 13` configured, onboard waterlevel `GPIO 15`|
+|[ESP12F Relay x4](https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf)|`esp8266:esp8266:espino`|Ensure `GPIO PWM` is set to `No` for the relay Outputs `RY1-RY4` (`GPIO 16,14,12,13`)|
+
 
 ## 💡 Supported Outputs
 |Output name|Notes|
