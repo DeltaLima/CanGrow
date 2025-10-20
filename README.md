@@ -29,23 +29,23 @@ For source code and releases, please go there! :)
 - Configuration saved as JSON within LittleFS for easy backup & restore
 
 ## 🤖 Supported Micro Controllers
-|Name|FQBN|Notes|
-|----|----|-----|
-|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|The default build target for the moment.|
-|ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|NodeMCU should work as well with this|
-|ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|Works with cheap nologo ones as well|
-|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|Works with cheap nologo ones as well, Crashes when serial monitor is active and LittleFS writes|
-|untested|untested|untested|
-|ESP8266 NodeMCU|`esp8266:esp8266:generic`|For all ESP8266 Dev boards|
-|ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|For all ESP32 WROOM Dev boards|
-|ESP32-C3 Dev board|`esp32:esp32:esp32c3`|For all ESP32-C3 Dev boards|
-|ESP32-S2 Dev board|`esp32:esp32:esp32s2`|For all ESP32-S2 WROOM Dev boards|
+|Name|FQBN|I2C GPIO|Notes|
+|----|----|--------|-----|
+|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|**SCL:** 5<br>**SDA:** 4|The default build target for the moment.|
+|ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|**SCL:** 22<br>**SDA:** 21|NodeMCU should work as well with this|
+|ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|**SCL:** 9<br>**SDA:** 8|Works with cheap nologo ones as well|
+|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|**SCL:** 35<br> **SDA:** 33|Works with cheap nologo ones as well, Crashes when serial monitor is active and LittleFS writes|
+|⬇️**untested**⬇️|⬇️**untested**⬇️|⬇️**untested**⬇️|⬇️**untested**⬇️|
+|ESP8266 NodeMCU|`esp8266:esp8266:generic`|**SCL:** 5<br> **SDA:** 4|For all ESP8266 Dev boards|
+|ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|**SCL:** 22<br> **SDA:** 21|For all ESP32 WROOM Dev boards|
+|ESP32-C3 Dev board|`esp32:esp32:esp32c3`|**SCL:** 9<br> **SDA:** 8|For all ESP32-C3 Dev boards|
+|ESP32-S2 Dev board|`esp32:esp32:esp32s2`|**SCL:** 35<br> **SDA:** 33|For all ESP32-S2 WROOM Dev boards|
 
 ## 🎛️ Supported Boards
-|Name|FQBN|Notes|
-|----|----|-----|
-|[CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|`esp8266:esp8266:d1_mini_clone`|Outputs are inverted (not `FAN2`), onboard soilmoisture needs `GPIO 13` configured, onboard waterlevel `GPIO 15`|
-|[ESP12F Relay x4](https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf)|`esp8266:esp8266:espino`|Ensure `GPIO PWM` is set to `No` for the relay Outputs `RY1-RY4` (`GPIO 16,14,12,13`)|
+|Name|FQBN|I2C GPIO|Notes|
+|----|----|--------|-----|
+|[CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|`esp8266:esp8266:d1_mini_clone`|**SCL:** 5<br> **SDA:** 4|- Outputs are inverted (not `FAN2`)<br>-- LED GPIO `12`<br>-- FAN1 GPIO `14`<br>-- FAN2 GPIO `0`<br>-- PUMP GPIO `16`<br>- onboard soilmoisture needs GPIO `13` configured<br>- onboard waterlevel GPIO `15`|
+|[ESP12F Relay X4](https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf)|`esp8266:esp8266:espino`|**SCL:** 5<br> **SDA:** 4|Ensure `GPIO PWM` is set to `No` for the relay Outputs `RY1-RY4` (GPIO `16,14,12,13`)|
 
 
 ## 💡 Supported Outputs
@@ -53,7 +53,7 @@ For source code and releases, please go there! :)
 |-----------|-----|
 |GPIO Pins|On/Off, PWM support, DAC tbd.|
 |I2C DAC modules|GP8402 (0-10V), MCP4725 (0-3.3V)|
-|HTTP requests|Tasmota / Shelly Wifi plugs, whatever REST API|
+|HTTP requests|- Tasmota / Shelly Wifi plugs <br> - whatever REST API|
 
 
 ## 🌡️ Supported Sensors
@@ -83,7 +83,15 @@ If you are interested in a mostly working and bleeding edge development release,
 ## 🔌 Setup
 
 After uploading the firmware to the ESP, you might want to perform a factory reset of the firmware.  
-To do so, bridge the internal LED Pin to:
+
+### Factory reset step-by-step
+1. Power on the ESP
+2. The internal LED flashes 3 times
+3. While the LED flashes, bridge the pins as shown in the table
+4. Release after holding for three seconds
+5. The internal LED will flash fast and the ESP restarts
+6. Factory reset done, to check, have a look into the serial console
+
 
 |ESP variant|GPIO|bridge to|
 |-----|--------|--------------|
@@ -92,7 +100,6 @@ To do so, bridge the internal LED Pin to:
 |ESP32-C3|8|GND|
 |ESP32-S2|15|+3.3V|
 
-During boot (LED flashes 3x) hold it and release after 3 seconds. The LED will flash fast and the ESP will reset and restart.
 
 CanGrow creates a new Wifi by default
 
