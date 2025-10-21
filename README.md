@@ -69,6 +69,7 @@ For source code and releases, please go there! :)
 |ADS1015|external 12 bit ADC|
 |Chirp|Soilmoisture, Temperature|
 |CCS811|eCO2 ppm, TVOC|
+|ENS16x|eCO2 ppm, TVOC, AQI UBA|
 
 
 ## 💾 Installation
