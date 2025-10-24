@@ -58,21 +58,21 @@ For source code and releases, please go there! :)
 
 
 ## 🌡️ Supported Sensors
-|Sensor name|Readings|
-|-----------|--------|
-|GPIO ADC |analog Sensors like capacitive Soilmoisture|
-|BME280|Temperature, Humidity, Preassure|
-|BME680|Temperature, Humidity, Preassure, Gas resistance|
-|SHT3x|Temperature, Humidity|
-|MLX90614|Temperature|
-|TCS34725|Color, Lux, Light temperature|
-|ADS1115|external 16 bit ADC|
-|ADS1015|external 12 bit ADC|
-|Chirp|Soilmoisture, Temperature|
-|CCS811|eCO2 ppm, TVOC|
-|ENS16x|eCO2 ppm, TVOC, AQI UBA|
-|AHT1x/AHT2x|Temperature, Humidity|
-|SCD4x|CO2 ppm, Temperature, Humidity|
+|Sensor name|Readings|Notes|
+|-----------|--------|-----|
+|GPIO ADC |internal ADC GPIO, can be converted||
+|BME280|Temperature, Humidity, Preassure||
+|BME680|Temperature, Humidity, Preassure, Gas resistance|slow sensor, reading data takes up to 1,5s|
+|SHT3x|Temperature, Humidity||
+|MLX90614|Temperature||
+|TCS34725|Color, Lux, Light temperature|slow sensor, reading data takes up to 2s|
+|ADS1115|external 16 bit ADC||
+|ADS1015|external 12 bit ADC||
+|Chirp|Soilmoisture, Temperature||
+|CCS811|eCO2 ppm, TVOC||
+|ENS16x|eCO2 ppm, TVOC, AQI UBA||
+|AHT1x/AHT2x|Temperature, Humidity||
+|SCD4x|CO2 ppm, Temperature, Humidity|slow sensor, data refreshes every 3-5s (reading is fast)|
 
 
 ## 💾 Installation
