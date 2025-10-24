@@ -13,7 +13,7 @@ For source code and releases, please go there! :)
 - Support for ESP8266 and ESP32 microcontrollers
 - Everything runs on the ESP microcontroller itself, no need for HomeAssistant
 - Lightweight WebUI with integrated Dashboard
-- Dasboard with Gauges and simple Linechart
+- Dashboard with Gauges and simple Linechart
 - Data Logging into builtin flash with LittleFS for the line chart to see past 32 hours
 - Free and flexible configuration of outputs (GPIO, HTTP, I2C) and sensors (builtin ADC, I2C modules)
 - Sensor values offered by JSON API `/api/sensor/`
@@ -31,21 +31,22 @@ For source code and releases, please go there! :)
 ## 🤖 Supported Micro Controllers
 |Name|FQBN|I2C GPIO|Notes|
 |----|----|--------|-----|
-|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|**SCL:** 5<br>**SDA:** 4|The default build target for the moment.|
-|ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|**SCL:** 22<br>**SDA:** 21|NodeMCU should work as well with this|
-|ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|**SCL:** 9<br>**SDA:** 8|Works with cheap nologo ones as well|
-|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|**SCL:** 35<br> **SDA:** 33|Works with cheap nologo ones as well, Crashes when serial monitor is active and LittleFS writes|
+|ESP8266 D1 Mini|`esp8266:esp8266:d1_mini_clone`|**SCL:** `5`<br>**SDA:** `4`|The default build target for the moment.|
+|ESP32 D1 Mini (WROOM)|`esp32:esp32:d1_mini32`|**SCL:** `22`<br>**SDA:** `21`|NodeMCU should work as well with this|
+|ESP32-C3 Supermini (Makergo)|`esp32:esp32:makergo_c3_supermini`|**SCL:** `9`<br>**SDA:** `8`|Works with cheap nologo ones as well|
+|ESP32-S2 Mini (Lolin)|`esp32:esp32:lolin_s2_mini`|**SCL:** `35`<br> **SDA:** `33`|Works with cheap nologo ones as well, Crashes when serial monitor is active and LittleFS writes|
 |⬇️**untested**⬇️|⬇️**untested**⬇️|⬇️**untested**⬇️|⬇️**untested**⬇️|
-|ESP8266 NodeMCU|`esp8266:esp8266:generic`|**SCL:** 5<br> **SDA:** 4|For all ESP8266 Dev boards|
-|ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|**SCL:** 22<br> **SDA:** 21|For all ESP32 WROOM Dev boards|
-|ESP32-C3 Dev board|`esp32:esp32:esp32c3`|**SCL:** 9<br> **SDA:** 8|For all ESP32-C3 Dev boards|
-|ESP32-S2 Dev board|`esp32:esp32:esp32s2`|**SCL:** 35<br> **SDA:** 33|For all ESP32-S2 WROOM Dev boards|
+|ESP8266 NodeMCU|`esp8266:esp8266:generic`|**SCL:** `5`<br> **SDA:** `4`|For all ESP8266 Dev boards|
+|ESP32 NodeMCU (WROOM)|`esp32:esp32:esp32`|**SCL:** `22`<br> **SDA:** `21`|For all ESP32 WROOM Dev boards|
+|ESP32-C3 Dev board|`esp32:esp32:esp32c3`|**SCL:** `9`<br> **SDA:** `8`|For all ESP32-C3 Dev boards|
+|ESP32-S2 Dev board|`esp32:esp32:esp32s2`|**SCL:** `35`<br> **SDA:** `33`|For all ESP32-S2 WROOM Dev boards|
 
 ## 🎛️ Supported Boards
 |Name|FQBN|I2C GPIO|Notes|
 |----|----|--------|-----|
-|[CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|`esp8266:esp8266:d1_mini_clone`|**SCL:** 5<br> **SDA:** 4|- Outputs are inverted (not `FAN2`)<br>-- LED GPIO `12`<br>-- FAN1 GPIO `14`<br>-- FAN2 GPIO `0`<br>-- PUMP GPIO `16`<br>- onboard soilmoisture needs GPIO `13` configured<br>- onboard waterlevel GPIO `15`|
-|[ESP12F Relay X4](https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf)|`esp8266:esp8266:espino`|**SCL:** 5<br> **SDA:** 4|Ensure `GPIO PWM` is set to `No` for the relay Outputs `RY1-RY4` (GPIO `16,14,12,13`)|
+|[CanGrow 12V PCB](https://git.la10cy.net/DeltaLima/CanGrow-12V-PCB)|`esp8266:esp8266:d1_mini_clone`|**SCL:** `5`<br> **SDA:** `4`|Outputs are inverted (not `FAN2`)<br>**Output GPIOs:**<br>- LED: `12`<br>- FAN1: `14`<br>- FAN2: `0` (NOT inverted)<br>- PUMP: `16`<br>**Onboard analog sensor GPIOs:**<br>- Those GPIOs are needed to "activate" the analog sensors onboard (<= PCB v0.6.1)<br>- Analog soilmoisture: `13`<br>- Analog waterlevel: `15`|
+|[ESP12F Relay X4](https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf)|`esp8266:esp8266:espino`|**SCL:** `5`<br> **SDA:** `4`|Ensure `GPIO PWM` is set to `No` for the relay Outputs<br>**Relay GPIOs:**<br>- Relay 1: `16`<br>- Relay 2: `14`<br>- Relay 3: `12`<br>- Relay 4: `13`<br>|
+|[ESP32 Relay X8](http://www.chinalctech.com/cpzx/Programmer/Relay_Module/540.html)|`esp32:esp32:esp32`|**SCL:** `22`<br> **SDA:** `21`|Ensure `GPIO PWM` is set to `No` for the relay Outputs<br>**Relay GPIOs:**<br>- Relay 1: `32`<br>- Relay 2: `33`<br>- Relay 3: `25`<br>- Relay 4: `26`<br>- Relay 5: `27`<br>- Relay 6: `14`<br>- Relay 7: `12`<br>- Relay 8: `13`|
 
 
 ## 💡 Supported Outputs
