@@ -72,6 +72,7 @@ For source code and releases, please go there! :)
 |CCS811|eCO2 ppm, TVOC|
 |ENS16x|eCO2 ppm, TVOC, AQI UBA|
 |AHT1x/AHT2x|Temperature, Humidity|
+|SCD4x|CO2 ppm, Temperature, Humidity|
 
 
 ## 💾 Installation
