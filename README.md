@@ -22,7 +22,7 @@ For source code and releases, please go there! :)
 - Simple watering plans, based on time interval and/or sensor value
 - Control fan outputs depending on sensor values
 - Support for I2C RTCs to keep the time when NTP is not available
-- Support for I2C DAC GP8402 as output to control 0-10V devices like Grow lights, Fans, etc
+- Support for I2C DAC GP8403, GP8413, GP8211 as output to control 0-10V devices like Grow lights, Fans, etc
 - Support for Wifi Plugs as output by sending simple HTTP requests
 - OTA update via the WebUI
 - Access Point creation as Failsafe mode when Wifi not available (see serial monitor)
@@ -53,7 +53,7 @@ For source code and releases, please go there! :)
 |Output name|Notes|
 |-----------|-----|
 |GPIO Pins|On/Off, PWM support, DAC tbd.|
-|I2C DAC modules|GP8402 (0-10V), MCP4725 (0-3.3V)|
+|I2C DAC modules|GP8403, GP8413, GP8211 (0-10V), MCP4725 (0-3.3V)|
 |HTTP requests|- Tasmota / Shelly Wifi plugs <br> - whatever REST API|
 
 
@@ -73,6 +73,9 @@ For source code and releases, please go there! :)
 |ENS16x|eCO2 ppm, TVOC, AQI UBA||
 |AHT1x/AHT2x|Temperature, Humidity||
 |SCD4x|CO2 ppm, Temperature, Humidity|slow sensor, data refreshes every 3-5s (reading is fast)|
+|SCD30|CO2 ppm, Temperature, Humidity||
+|HTU21D|Temperature, Humidity|
+|HTU31D|Temperature, Humidity|
 
 
 ## 💾 Installation
