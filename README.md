@@ -1,4 +1,4 @@
-# ![Logo/CanGrow_favico_large.png](Logo/CanGrow_favico_large.png) CanGrow - An OpenSource grow controller firmware for ESP8266 / ESP32
+# ![Logo/CanGrow_favico_large.png](Logo/CanGrow_favico_large.png) CanGrow - An OpenSource grow box controller firmware for ESP8266 / ESP32
 
 CanGrow is a firmware for ESP micro controllers for automation and monitoring of all plant needs. It can be understood as a lightweight standalone alternative to HomeAssistant for plant growing systems.
 
@@ -13,7 +13,7 @@ For source code and releases, please go there! :)
 - Support for ESP8266 and ESP32 microcontrollers
 - Everything runs on the ESP microcontroller itself, no need for HomeAssistant
 - Lightweight WebUI with integrated Dashboard
-- Dashboard with Gauges and simple Linechart
+- Dashboard with Gauges, simple VPD, Linechart and webcam image integration 
 - Data Logging into builtin flash with LittleFS for the line chart to see past 32 hours
 - Free and flexible configuration of outputs (GPIO, HTTP, I2C) and sensors (builtin ADC, I2C modules)
 - Sensor values offered by JSON API `/api/sensor/`
